@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-toolbar>
+        <ion-title>Que vendiste?</ion-title>
+      </ion-toolbar>
+      <ion-toolbar>
+        <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionChange)="setFilteredItems()"
+        ></ion-searchbar>
+      </ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+
+      <ion-list>
+    <ion-item *ngFor="let item of items">
+
+
+      <section class="full-width">
+        <ion-button expand="block" size="large" >{{ item.title }}</ion-button>
+      </section>
+
+    </ion-item>
+      </ion-list>
+</ion-content>
+
