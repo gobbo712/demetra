@@ -6,13 +6,11 @@ import { DataService } from "../services/data.service";
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class Tab1Page {
   public searchTerm: string = "";
   public items: any;
 
-  constructor(private dataService: DataService) {}
-
-  ngOnInit() {
+  constructor(private dataService: DataService) {
     this.setFilteredItems();
   }
 

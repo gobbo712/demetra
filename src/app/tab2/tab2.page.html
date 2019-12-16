@@ -1,9 +1,82 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Ventas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+	
+          
+          <!-- <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Address</ion-label>
+            <ion-input placeholder="Address Line 1"></ion-input>
+            <ion-input placeholder="Address Line 2"></ion-input>
+            <ion-input placeholder="City"></ion-input>
+            <ion-input placeholder="State"></ion-input>
+            <ion-input placeholder="Zip Code"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Notes</ion-label>
+            <ion-textarea></ion-textarea>
+          </ion-item> -->
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="8">
+      <div>
+            <ion-label position="floating">Item</ion-label>
+            <ion-input  type="text" (keyup)="ventasService.setFiltro(this)"
+            [(ngModel)]='ventasService.inputText'></ion-input>
+            <!-- <ion-auto-complete [dataProvider]="ventasService"></ion-auto-complete> -->
+      </div>
+    </ion-col>
+    <ion-col align="right">
+      <div>
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="ventasService.agregar()">Venta</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="8">
+      <div><!-- 
+            <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required type="number" oninput="handleLastNameValue(event)" inputmode="numeric" ></ion-input> -->
+      <ion-list *ngFor="let item of ventasService.listaFiltrada">
+        <ion-item>
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="ventasService.agregar(item)">{{item.etiqueta}}</ion-button>
+        </ion-item>
+      </ion-list>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        ------
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+      <form onsubmit="processForm(event)">
+
+        <div class="ion-padding">
+        </div>
+      </form>
+
+
+<!-- 
+
+	<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+		<ion-fab-button (click)="takePicture()">
+			<ion-icon name="camera"></ion-icon>
+		</ion-fab-button>
+	</ion-fab> -->
+
+</ion-content>
