@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { VentasService } from '../services/ventas.service';
+import { DataService } from "../services/data.service";
 
 @Component({
   selector: 'app-tab2',

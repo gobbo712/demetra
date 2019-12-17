@@ -1,5 +1,7 @@
 {
   "name": "demetra",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

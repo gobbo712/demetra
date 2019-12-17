@@ -21,11 +21,11 @@ export class VentasService {
   public agregar(){
   	this.carrito.unshift(new Item(this.inputText));
     this.inputText = '';
-  	console.log('sin arg');
+  	console.log();
   }
 
-  public agregarItem(){
-    this.catalogo.unshift(new Item(this.inputText));
+  public agregarCarrito(item:Item){
+    this.carrito.unshift(item);
   }
 
 }

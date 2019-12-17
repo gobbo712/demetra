@@ -5,11 +5,7 @@ export class Item {
 	meta:any;
 	cantidad:number;
 
-	constructor(etiqueta:string){
-		this.etiqueta=etiqueta;
-		this.foto64='';
-		this.descripcion='';
-		this.meta='';
-		this.cantidad=1;
+	constructor(eti:string){
+		this.etiqueta=eti;
 	}
 }
