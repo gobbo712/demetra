@@ -10,17 +10,12 @@ export class CatalogoService {
 
   constructor() {
   	for (var i = 0; i <= 10; i++) {
-	  	this.catalogo.unshift(this.mockItem('aaa'+i,i,i,i));
-	}
+	  	this.catalogo.unshift(this.mockItem(i));
+  	}
   }
 
-  mockItem(e,f,d,m):Item{
-  	return {
-  		etiqueta:e,
-  		foto64:f,
-  		descripcion:d,
-  		meta:m
-  	};
+  mockItem(e):Item{
+  	return new Item('I am the mock item'+e);
   }
 
   public totalItems():number{

@@ -33,14 +33,14 @@
     <ion-col size="8">
       <div>
             <ion-label position="floating">Item</ion-label>
-            <ion-input  type="text" (keyup)="ventasService.setFiltro(this)"
+            <ion-input  type="text" (keyup)="setFiltro()"
             [(ngModel)]='ventasService.inputText'></ion-input>
             <!-- <ion-auto-complete [dataProvider]="ventasService"></ion-auto-complete> -->
       </div>
     </ion-col>
     <ion-col align="right">
       <div>
-          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="ventasService.agregar()">Venta</ion-button>
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="agregarCatalogo()">Nuevo Item</ion-button>
       </div>
     </ion-col>
   </ion-row>
@@ -49,9 +49,9 @@
       <div><!-- 
             <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text></ion-label>
             <ion-input required type="number" oninput="handleLastNameValue(event)" inputmode="numeric" ></ion-input> -->
-      <ion-list *ngFor="let item of ventasService.listaFiltrada">
+      <ion-list *ngFor="let item of ventasService.catalogo">
         <ion-item>
-          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="ventasService.agregar(item)">{{item.etiqueta}}</ion-button>
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="agregarCarrito(item)">{{item.etiqueta}}</ion-button>
         </ion-item>
       </ion-list>
       </div>

@@ -14,17 +14,18 @@ export class VentasService {
 
   public inputText: string;
 
-  constructor(catalogoService:CatalogoService) { }
+  constructor(private catalogoService:CatalogoService) {
+    this.catalogo = catalogoService.items();
+  }
 
   public agregar(){
-  	this.carrito.unshift({
-      descripcion:'',
-      etiqueta:this.inputText,
-      foto64:'',
-      meta:''
-    });
+  	this.carrito.unshift(new Item(this.inputText));
     this.inputText = '';
   	console.log('sin arg');
+  }
+
+  public agregarItem(){
+    this.catalogo.unshift(new Item(this.inputText));
   }
 
 }
