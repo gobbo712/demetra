@@ -15,6 +15,6 @@ export class Tab1Page {
   }
 
   setFilteredItems() {
-    this.items = this.dataService.filterItems(this.searchTerm);
+    this.items = this.dataService.filterCatalog(this.searchTerm);
   }
 }

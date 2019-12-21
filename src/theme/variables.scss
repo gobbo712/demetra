@@ -3,6 +3,13 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+// $font-family-ios-base: "Josefin Sans", -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+// $font-family-md-base: "Josefin Sans", "Roboto", "Helvetica Neue", sans-serif;
+// $font-family-wp-base: "Josefin Sans", "Segoe UI", "Noto Sans", sans-serif;
+
+--ion-font-family: "Arial";
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -74,4 +81,13 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+
+@font-face {
+  font-family: 'AlexBrush';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16mm;
+  src: url('../assets/fonts/AlexBrush/AlexBrush-Regular.ttf');
 }

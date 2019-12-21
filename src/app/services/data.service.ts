@@ -1,26 +1,38 @@
 import { Injectable } from '@angular/core';
+import {Item} from '../classes/item';
+import {CatalogoService} from '../services/catalogo.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  public items: any = [];
+  items: Item[] = [];
 
-  constructor() {
-    this.items = [
-      { title: "one" },
-      { title: "two" },
-      { title: "three" },
-      { title: "four" },
-      { title: "five" },
-      { title: "six" }
-    ];
+  constructor(catalogoService:CatalogoService) {
+    // this.items = [
+    //   { title: "one" },
+    //   { title: "two" },
+    //   { title: "three" },
+    //   { title: "four" },
+    //   { title: "five" },
+    //   { title: "six" }
+    // ];
+    this.items = catalogoService.getCatalogo();
+
   }
 
-  filterItems(searchTerm) {
+  // public getCatalog():Item[]{
+  //   return this.items;
+  // }
+
+  public filterCatalog(searchTerm) {
     return this.items.filter(item => {
-      return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      return item.etiqueta.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
+  }
+
+  saveItemInCatalog(item:Item){
+
   }
 }

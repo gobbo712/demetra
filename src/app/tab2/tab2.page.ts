@@ -11,6 +11,7 @@ import { Item } from '../classes/item';
 })
 export class Tab2Page {
 
+
   public inputText: string;
 
   constructor(public ventasService: VentasService, public dataService:DataService) {}

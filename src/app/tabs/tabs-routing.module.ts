@@ -8,47 +8,48 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'ventas',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('./ventas/ventas.module').then(m => m.VentasPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'inventario',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('./inventario/inventario.module').then(m => m.InventarioPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'cierre',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('./cierre/cierre.module').then(m => m.CierrePageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/ventas',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/ventas',
     pathMatch: 'full'
   }
+
 ];
 
 @NgModule({

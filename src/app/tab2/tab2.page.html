@@ -46,9 +46,7 @@
   </ion-row>
   <ion-row>
     <ion-col size="8">
-      <div><!-- 
-            <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required type="number" oninput="handleLastNameValue(event)" inputmode="numeric" ></ion-input> -->
+      <div>aca lista filtrada del catalogo
       <ion-list *ngFor="let item of dataService.catalogo">
         <ion-item>
           <ion-button expand="block" type="submit" class="ion-no-margin" (click)="agregarCarrito(item)">{{item.etiqueta}}</ion-button>
@@ -58,7 +56,7 @@
     </ion-col>
     <ion-col>
       <div>
-        ------
+        carrito
       </div>
     </ion-col>
   </ion-row>

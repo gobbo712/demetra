@@ -12,17 +12,15 @@ export class VentasService {
 
   public carrito: Item[] = [];
 
-  public inputText: string;
-
   constructor(private catalogoService:CatalogoService) {
-    this.catalogo = catalogoService.items();
+    this.catalogo = catalogoService.getCatalogo();
   }
 
-  public agregar(){
-  	this.carrito.unshift(new Item(this.inputText));
-    this.inputText = '';
-  	console.log();
-  }
+  // public agregar(){
+  // 	this.carrito.unshift(new Item(this.inputText));
+  //   this.inputText = '';
+  // 	console.log();
+  // }
 
   public agregarCarrito(item:Item){
     this.carrito.unshift(item);

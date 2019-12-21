@@ -1,13 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>item</ion-title>
+    <ion-title>Nuevo Articulo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 <ion-grid>
 	<ion-row>
+		<ion-col size="10">
+            <ion-label position="floating">Nombre</ion-label>
+			<ion-input  type="text" [(ngModel)]='item.etiqueta'></ion-input>
+		</ion-col>
+		<ion-col size="1" class="ion-align-self-center ion-text-center">
+		    <ion-label>Q: {{item.cantidad}}</ion-label>
+		</ion-col>
+		<ion-col size="1" class="ion-align-self-center ion-text-center">
+			<!-- <ion-picker-controller></ion-picker-controller> -->
+		    <ion-button (click)="masUno()"><ion-icon name="add"></ion-icon></ion-button>
+		    <ion-button (click)="menosUno()"><ion-icon name="remove"></ion-icon></ion-button>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col size="12">
+            <ion-label position="floating">Notas</ion-label>
+			<ion-textarea  type="text" [(ngModel)]='item.notas'></ion-textarea>
+		</ion-col>
+	</ion-row>
+	<ion-row>
 		<ion-col>new item</ion-col>
 	</ion-row>
 </ion-grid>
+<ion-button (click)="dismissModal()">Cancelar</ion-button>
+<ion-button (click)="guardarItem()" [disabled]="item.etiqueta.length == 0">Guardar</ion-button>
+<ion-button (click)="dismissModal()" color="danger">BORRAR</ion-button>
 </ion-content>
