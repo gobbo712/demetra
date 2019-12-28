@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Item} from '../classes/item';
-import {CatalogoService} from '../services/catalogo.service';
+import {Carrito} from '../classes/carrito';
+//import {CatalogoService} from '../services/catalogo.service';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class DataService {
 
   items: Item[] = [];
 
-  constructor(catalogoService:CatalogoService) {
+  constructor(/*catalogoService:CatalogoService*/private storage: Storage) {
     // this.items = [
     //   { title: "one" },
     //   { title: "two" },
@@ -18,9 +20,24 @@ export class DataService {
     //   { title: "five" },
     //   { title: "six" }
     // ];
-    this.items = catalogoService.getCatalogo();
+    // this.items = catalogoService.getCatalogo();
 
   }
+
+  public getStock():Item[]{
+    return null;
+  }
+
+  public getVentas():Carrito[]{
+    return null;
+  }
+
+  public confirmarVenta(carrito:Carrito){
+
+  }
+
+
+
 
   // public getCatalog():Item[]{
   //   return this.items;

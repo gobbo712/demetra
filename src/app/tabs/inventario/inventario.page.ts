@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 import { CatalogoService } from '../../services/catalogo.service';
 import { Item } from '../../classes/item';
@@ -16,7 +16,7 @@ export class InventarioPage implements OnInit {
   public catalogo:Item[] = [];
 
 
-  constructor(public catalogoService:CatalogoService, public alertController: AlertController, public modalController: ModalController) { }
+  constructor(public catalogoService:CatalogoService, public modalController: ModalController) { }
 
   ngOnInit() {
     this.catalogo = this.catalogoService.getCatalogo();
@@ -58,19 +58,4 @@ export class InventarioPage implements OnInit {
     slidingItem.closeOpened();
   }
 
-  borrarItem(item:Item){
-
-    let c = this.alertController.create({
-      header: 'Confirmar',
-      message: 'Borrar este elemento del catalogo?',
-      buttons: ['NO', {
-        text: 'SI',
-        handler: () => {
-          this.catalogoService.borrarItem(item);
-        }
-      }]
-    }).then(alert => {
-      alert.present();
-    });
-  }
 }

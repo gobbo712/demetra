@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavParams, AlertController } from '@ionic/angular';
 import { Item } from '../classes/item';
 import {CatalogoService} from '../services/catalogo.service';
 
@@ -12,14 +12,7 @@ export class ItemPage implements OnInit {
 
   private item:Item;
 
-  // public unique_id:any;
-  // public etiqueta:string;
-  // public foto64:any;
-  // public notas:string;
-  // public meta:any;
-  // public cantidad:number;
-
-  constructor(public modalController: ModalController, public catalogoService:CatalogoService, public navParams: NavParams) { }
+  constructor(public modalController: ModalController, public alertController: AlertController, public catalogoService:CatalogoService, public navParams: NavParams) { }
 
   ngOnInit() {
   	if(this.navParams.data.item){
@@ -43,6 +36,29 @@ export class ItemPage implements OnInit {
   	this.catalogoService.guardarItem(this.item);
   	this.modalController.dismiss();
   }
+
+  borrarItem(){
+    this.alertController.create({
+      header: 'Confirmar',
+      message: 'Borrar este elemento del catalogo?',
+      buttons: ['NO', {
+        text: 'Q:0',
+        handler: () => {
+          this.item.cantidad = 0;
+          this.catalogoService.guardarItem(this.item);
+          this.modalController.dismiss();
+        }}, {
+        text: 'SI',
+        handler: () => {
+          this.catalogoService.borrarItem(this.item);
+          this.modalController.dismiss();
+        }
+      }]
+    }).then(alert => {
+      alert.present();
+    });
+  }
+
 
   masUno(item:Item){
       this.item.cantidad = this.item.cantidad + 1;
