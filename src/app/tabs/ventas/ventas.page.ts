@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CatalogoService } from '../../services/catalogo.service';
+import { Item } from '../../classes/item';
 
 @Component({
   selector: 'app-ventas',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VentasPage implements OnInit {
 
-  constructor() { }
+  public filtro: string = "";
+  public catalogo:Item[] = [];
+
+  constructor(public catalogoService:CatalogoService) { }
 
   ngOnInit() {
+    this.catalogo = this.catalogoService.getCatalogo();
+  }
+
+  filtrarLista() {
+    this.catalogo = this.catalogoService.filtrarCatalogo(this.filtro);
   }
 
 }
