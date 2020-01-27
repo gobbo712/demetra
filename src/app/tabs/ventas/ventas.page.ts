@@ -11,6 +11,10 @@ export class VentasPage implements OnInit {
 
   public filtro: string = "";
   public catalogo:Item[] = [];
+  public slideOpts = {
+    direction: "vertical",
+    freeMomentum: "true",
+  };
 
   constructor(public catalogoService:CatalogoService) { }
 
@@ -21,5 +25,10 @@ export class VentasPage implements OnInit {
   filtrarLista() {
     this.catalogo = this.catalogoService.filtrarCatalogo(this.filtro);
   }
+
+
+// "{
+//           'direction'='vertical', 'freeMomentum' = 'true'
+//       }"
 
 }
